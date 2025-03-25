@@ -43,7 +43,10 @@ function Header() {
         <div className="flex items-center space-x-2 md:space-x-4">
           <SignedIn>
             <Link href="/dashboard">
-              <Button variant="outline" className="hidden md:flex items-center gap-2">
+              <Button
+                variant="outline"
+                className="hidden md:inline-flex items-center gap-2"
+              >
                 <LayoutDashboard className="h-4 w-4" />
                 Industry Insights
               </Button>
@@ -69,7 +72,10 @@ function Header() {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/ai-cover-letter" className="flex items-center gap-2">
+                  <Link
+                    href="/ai-cover-letter"
+                    className="flex items-center gap-2"
+                  >
                     <PenBox className="h-4 w-4" />
                     Cover Letter
                   </Link>
@@ -83,10 +89,8 @@ function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
           </SignedIn>
-        </div>
 
-        {/* Authentication Buttons */}
-        <div className="flex items-center gap-4">
+          {/* Authentication Buttons */}
           <SignedOut>
             <SignInButton>
               <Button variant="outline">Sign In</Button>
