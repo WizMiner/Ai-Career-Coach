@@ -1,31 +1,27 @@
-"use client";
-
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { Button } from "./ui/button";
 import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+  PenBox,
+  LayoutDashboard,
+  FileText,
+  GraduationCap,
+  ChevronDown,
+  StarsIcon,
+} from "lucide-react";
+import Link from "next/link";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  LayoutDashboard,
-  Stars,
-  ChevronDown,
-  FileText,
-  PenBox,
-  GraduationCap,
-} from "lucide-react";
+import Image from "next/image";
+import { checkUser } from "@/lib/checkUser";
 
-function Header() {
+export default async function Header() {
+  await checkUser();
+
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -40,6 +36,7 @@ function Header() {
           />
         </Link>
 
+        {/* Action Buttons */}
         <div className="flex items-center space-x-2 md:space-x-4">
           <SignedIn>
             <Link href="/dashboard">
@@ -59,7 +56,7 @@ function Header() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button className="flex items-center gap-2">
-                  <Stars className="h-4 w-4" />
+                  <StarsIcon className="h-4 w-4" />
                   <span className="hidden md:block">Growth Tools</span>
                   <ChevronDown className="h-4 w-4" />
                 </Button>
@@ -96,6 +93,7 @@ function Header() {
               <Button variant="outline">Sign In</Button>
             </SignInButton>
           </SignedOut>
+
           <SignedIn>
             <UserButton
               appearance={{
@@ -113,5 +111,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;
