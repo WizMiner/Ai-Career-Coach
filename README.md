@@ -1,5 +1,13 @@
 # Full Stack AI Career Coach with Next.js, Neon DB, Tailwind CSS, Prisma, Inngest, Shadcn UI
 
+
+## Go live
+
+1. copy link:
+
+   ```bash
+   https://ai-career-coach-snowy.vercel.app/
+
 ### Make sure to create a `.env` file with the following variables:
 
 ```
